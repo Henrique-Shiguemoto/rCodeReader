@@ -3,6 +3,7 @@ import 'package:barcode/reusable_components/rIcon.dart';
 import 'package:barcode/reusable_components/rText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BarcodeReaderPage extends StatefulWidget {
   const BarcodeReaderPage({super.key});
@@ -22,6 +23,14 @@ class _BarcodeReaderPageState extends State<BarcodeReaderPage> {
       ScanMode.BARCODE,
     );
     setState(() => lastReadCode = code != '-1' ? code : 'Nenhum código lido.');
+
+    _launchUrl();
+  }
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(Uri.parse(lastReadCode))) {
+      throw Exception('Could not launch $lastReadCode');
+    }
   }
 
   @override
