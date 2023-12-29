@@ -4,6 +4,12 @@ This is a project made in Flutter with the Dart programming language. It is a mi
 
 It uses the flutter_barcode_scanner package and url_lancher package.
 
+## Features
+
+- Camera opening
+- URI recognition
+- Browser opening
+
 ## Screenshots
 
 <p float="left">
